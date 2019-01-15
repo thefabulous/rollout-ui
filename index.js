@@ -37,7 +37,7 @@ function populate(req, res, next) {
   let flags = res.locals.rollout_flags = rollout.handlers()
   let all = {}
   Prom.all(res.locals.rollout_flags.map((flag) => {
-    return rollout.mods(flag)
+    return rollout.modifiers(flag)
   }))
   .then((mods) => {
     mods.forEach((mod, i) => {

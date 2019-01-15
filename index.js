@@ -34,7 +34,7 @@ router.put('/', populate, (req, res, next) => {
 function populate(req, res, next) {
   res.locals.utils = utils
   res.locals.version = version
-  let flags = res.locals.rollout_flags = rollout.flags()
+  let flags = res.locals.rollout_flags = rollout.handlers()
   let all = {}
   Prom.all(res.locals.rollout_flags.map((flag) => {
     return rollout.mods(flag)
